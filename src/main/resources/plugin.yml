@@ -1,0 +1,21 @@
+name: Plugin
+version: '${project.version}'
+main: com.eternia.Plugin
+api-version: 1.19
+commands:
+  survival:
+    aliases: 0
+    description: Puts your gamemode to survival
+    usage: /0 or /survival
+  creative:
+    aliases: 1
+    description: Puts your gamemode to creative
+    usage: /1 or /creative
+  adventure:
+    aliases: 2
+    description: Puts your gamemode to adventure
+    usage: /2 or /adventure
+  spectator:
+    aliases: 3
+    description: Puts your gamemode to spectator
+    usage: /3 or /spectator
