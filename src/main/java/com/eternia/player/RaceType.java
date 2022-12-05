@@ -1,4 +1,4 @@
-package com.eternia.spells;
+package com.eternia.player;
 
 public enum RaceType {
     DEMIGOD,

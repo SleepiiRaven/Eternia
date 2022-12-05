@@ -1,6 +1,5 @@
 package com.eternia.player;
 
-import com.eternia.spells.RaceType;
 import com.eternia.spells.Spell;
 import com.eternia.spells.SpellTriggers;
 import com.eternia.spells.lightseekers.elves.ElfSpells;

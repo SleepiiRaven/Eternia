@@ -1,47 +1,92 @@
 package com.eternia.guis;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import com.eternia.player.FactionType;
+import com.eternia.player.PlayerStats;
+import com.eternia.utils.ItemUtils;
+import java.util.HashMap;
+import java.util.Map;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class FactionGUI {
-    public static final String invName = "Faction Selector"
+    private static final int imanitySlot = 10;
+    private static final int lightbringerSlot = 16;
+    private static final int hellscapersSlot = 37;
+    private static final int cavedwellersSlot = 43;
+    public static final String invName = "Faction Selector";
 
-    public static void openGUI() {
-        Inventory inv = Bukkit.createInventory(p, 9 * 3, invName);
-        inv.setItem(11, getItem(new ItemStack(Material.DIAMOND_SWORD), "&6Rogue", "&eClick to become a rogue.", "Rogues deal very high damage,", "but they're only single target."));
-        inv.setItem(12, getItem(new ItemStack(Material.DIAMOND_AXE), "&6Warrior", "&eClick to become a warrior.", "Warriors deal moderate damage,", "and they are very tanky."));
-        inv.setItem(13, getItem(new ItemStack(Material.STICK), "&6Mage", "&eClick to become a mage.", "Mages deal high damage and AOE,", "but they aren't tanky."));
-        inv.setItem(14, getItem(new ItemStack(Material.BOW), "&6Scout", "&eClick to become a scout.", "Scouts harness ranged weapons such as bows", "to deal a moderate amount of damage."));
-        inv.setItem(15, getItem(new ItemStack(Material.DIAMOND_HOE), "&6Cleric", "&eClick to become a cleric.", "Clerics harness their own life force,", "to heal their allies and damage their foes."));
-        inv.setItem(22, getItem(new ItemStack(Material.TOTEM_OF_UNDYING), "&6Summoner", "&eClick to become a summoner.", "Summoners harness souls to deal high damage,", "but normally deal low damage."));
-
-        p.openInventory(inv);
-    }
-
-    private ItemStack getItem(ItemStack item, String name, String ... lore) {
-        ItemMeta meta = item.getItemMeta();
-
-        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-
-        List<String> lores = new ArrayList<>();
-        for (String s : lore) {
-            lores.add(ChatColor.translateAlternateColorCodes('&', s));
+    public static void openGUI(Player player) {
+        Inventory inv = Bukkit.createInventory(player, 9 * 6, invName);
+        for (int i = 0; i < 3; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.GREEN_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 3; i < 6; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 6; i < 9; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.PINK_STAINED_GLASS_PANE), ""));
+        }
+        inv.setItem(9, ItemUtils.getItem(new ItemStack(Material.GREEN_STAINED_GLASS_PANE), ""));
+        inv.setItem(imanitySlot, ItemUtils.getItem(new ItemStack(Material.TOTEM_OF_UNDYING),"Imanity", "The children of God, these beings utilize life magic in all shapes and forms."));
+        inv.setItem(11, ItemUtils.getItem(new ItemStack(Material.GREEN_STAINED_GLASS_PANE), ""));
+        for (int i = 12; i < 15; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE), ""));
+        }
+        inv.setItem(15, ItemUtils.getItem(new ItemStack(Material.PINK_STAINED_GLASS_PANE), ""));
+        inv.setItem(lightbringerSlot, ItemUtils.getItem(new ItemStack(Material.TOTEM_OF_UNDYING),"Lightbringers", "The faithful servants of the light created by Akilion to protect and serve the light."));
+        inv.setItem(17, ItemUtils.getItem(new ItemStack(Material.PINK_STAINED_GLASS_PANE), ""));
+        for (int i = 18; i < 21; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.GREEN_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 21; i < 24; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 24; i < 27; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.PINK_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 27; i < 30; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.RED_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 30; i < 33; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 33; i < 36; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), ""));
+        }
+        inv.setItem(36, ItemUtils.getItem(new ItemStack(Material.RED_STAINED_GLASS_PANE), ""));
+        inv.setItem(hellscapersSlot, ItemUtils.getItem(new ItemStack(Material.BARRIER),"Hellscapers", "Coming Soon..."));
+        inv.setItem(38, ItemUtils.getItem(new ItemStack(Material.RED_STAINED_GLASS_PANE), ""));
+        for (int i = 39; i < 42; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE), ""));
+        }
+        inv.setItem(42, ItemUtils.getItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), ""));
+        inv.setItem(cavedwellersSlot, ItemUtils.getItem(new ItemStack(Material.BARRIER),"Cavedwellers", "Coming Soon..."));
+        inv.setItem(44, ItemUtils.getItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), ""));
+        for (int i = 27; i < 30; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.RED_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 30; i < 33; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE), ""));
+        }
+        for (int i = 33; i < 36; i++) {
+            inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), ""));
         }
 
-        meta.setLore(lores);
-
-        item.setItemMeta(meta);
-
-        return item;
+        player.openInventory(inv);
     }
 
-    public static void clickedGUI() {
+    public static void clickedGUI(InventoryClickEvent event) {
+        switch (event.getSlot()) {
+            case imanitySlot:
+                PlayerStats stats = PlayerStats.getStats((Player) event.getWhoClicked(), event.getWhoClicked().getUniqueId());
+                stats.faction = FactionType.IMANITY;
+        }
+
+        event.setCancelled(true);
     }
 }

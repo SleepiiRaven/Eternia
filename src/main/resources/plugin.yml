@@ -19,3 +19,6 @@ commands:
     aliases: 3
     description: Puts your gamemode to spectator
     usage: /3 or /spectator
+  factions:
+    description: Opens the Factions GUI
+    usage: /factions [player]

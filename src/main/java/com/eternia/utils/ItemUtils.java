@@ -1,8 +1,13 @@
 package com.eternia.utils;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.List;
 import java.util.Set;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class ItemUtils {
     public static final Set<Material> weapons = EnumSet.of(
@@ -32,4 +37,21 @@ public class ItemUtils {
             Material.NETHERITE_HOE,
             Material.SHEARS
     );
+
+    public static ItemStack getItem(ItemStack item, String name, String ... lore) {
+        ItemMeta meta = item.getItemMeta();
+
+        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+
+        List<String> lores = new ArrayList<>();
+        for (String s : lore) {
+            lores.add(ChatColor.translateAlternateColorCodes('&', s));
+        }
+
+        meta.setLore(lores);
+
+        item.setItemMeta(meta);
+
+        return item;
+    }
 }
