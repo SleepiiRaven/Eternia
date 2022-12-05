@@ -7,12 +7,15 @@ import com.eternia.utils.ItemUtils;
 import java.util.List;
 import java.util.UUID;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.player.PlayerAnimationEvent;
 import org.bukkit.event.player.PlayerAnimationType;
@@ -76,6 +79,28 @@ public class PlayerListener implements Listener {
         cooldownManager.setCooldownFromNow(player.getUniqueId(), "Spell Click", cooldown);
         if (playerStats.spellTriggers.spellMode) {
             playerStats.spellTriggers.continueNormalSpell(Action.LEFT_CLICK_AIR);
+        }
+    }
+
+    @EventHandler
+    public void playerHit(EntityDamageEvent event) {
+        if (!(event.getEntity() instanceof Player)) return;
+        switch (event.getCause()) {
+            case FALL:
+                event.setDamage(event.getDamage() * 0.8);
+                break;
+        }
+    }
+
+    @EventHandler
+    public void playerHitByEntity(EntityDamageByEntityEvent event) {
+        if (event.getDamager() instanceof Arrow && event.getDamager().getScoreboardTags().contains("arrowRainArrow")) {
+            event.setDamage(5);
+        }
+
+        if (!(event.getEntity() instanceof Player)) return;
+        if (event.getDamager() instanceof Arrow && event.getDamager().getScoreboardTags().contains(event.getEntity().getUniqueId().toString())) {
+            event.setCancelled(true);
         }
     }
 

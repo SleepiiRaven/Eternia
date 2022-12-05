@@ -49,9 +49,11 @@ public class SpellTriggers {
             }
         }
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(currentMessage));
-        spellClicks[clicksSoFar] = click;
+        if (clicksSoFar < 2) {
+            spellClicks[clicksSoFar] = click;
+        }
         clicksSoFar += 1;
-        if (clicksSoFar == spellClicks.length) {
+        if (clicksSoFar == 2) {
             finishSpell();
             spellMode = false;
             clicksSoFar = 0;

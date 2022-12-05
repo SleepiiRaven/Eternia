@@ -1,3 +1,4 @@
+com\eternia\listeners\PlayerListener$2.class
 com\eternia\spells\lightseekers\elves\util\EyeofLight$2.class
 com\eternia\utils\FastUtils.class
 com\eternia\spells\Spell.class
@@ -8,6 +9,7 @@ com\eternia\player\PlayerStats.class
 com\eternia\spells\imanity\demigods\base\Godswipe.class
 com\eternia\spells\lightseekers\astreans\AstreanSpells.class
 com\eternia\spells\lightseekers\elves\util\EyeofLight.class
+com\eternia\spells\lightseekers\elves\heavy\ArrowRain$1.class
 com\eternia\spells\lightseekers\elves\movement\LeapofFate.class
 com\eternia\CooldownContainer.class
 com\eternia\commands\Adventure.class
@@ -33,6 +35,7 @@ com\eternia\utils\SpellUtils.class
 com\eternia\spells\SpellTriggers.class
 com\eternia\spells\imanity\demigods\heavy\GodsWrath.class
 com\eternia\utils\SpellUtils$1.class
+com\eternia\spells\lightseekers\elves\heavy\ArrowRain$1$1.class
 com\eternia\utils\ItemUtils.class
 com\eternia\spells\SpellType.class
 com\eternia\CooldownManager.class
