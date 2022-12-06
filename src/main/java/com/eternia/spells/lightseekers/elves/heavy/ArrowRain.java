@@ -2,7 +2,7 @@ package com.eternia.spells.lightseekers.elves.heavy;
 
 import com.destroystokyo.paper.ParticleBuilder;
 import com.eternia.CooldownManager;
-import com.eternia.Plugin;
+import com.eternia.Eternia;
 import com.eternia.spells.Spell;
 import com.eternia.utils.FastUtils;
 import com.eternia.utils.ParticleUtils;
@@ -55,15 +55,15 @@ public class ArrowRain extends Spell {
                         public void run() {
                             arrow.getWorld().spawnParticle(Particle.REDSTONE, arrow.getLocation(), 1, new Particle.DustOptions(Color.AQUA, 1));
                             if (arrow.isDead() || arrow.isOnGround()) {
-                                this.cancel();
                                 arrow.remove();
+                                this.cancel();
                             }
                         }
-                    }.runTaskTimer(Plugin.getInstance(), 0L, 1L);
+                    }.runTaskTimer(Eternia.getInstance(), 0L, 1L);
                 }
                 ticks += 1;
                 if (ticks >= 60) this.cancel();
             }
-        }.runTaskTimer(Plugin.getInstance(), 0L, 1L);
+        }.runTaskTimer(Eternia.getInstance(), 0L, 1L);
     }
 }

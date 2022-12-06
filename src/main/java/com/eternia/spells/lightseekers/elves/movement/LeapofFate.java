@@ -1,7 +1,7 @@
 package com.eternia.spells.lightseekers.elves.movement;
 
 import com.eternia.CooldownManager;
-import com.eternia.Plugin;
+import com.eternia.Eternia;
 import com.eternia.spells.Spell;
 import com.eternia.utils.BlockUtils;
 import org.bukkit.Color;
@@ -36,6 +36,6 @@ public class LeapofFate extends Spell {
                 }
                 p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 10, 1));
             }
-        }.runTaskTimer(Plugin.getInstance(), 20L, 5L);
+        }.runTaskTimer(Eternia.getInstance(), 20L, 5L);
     }
 }

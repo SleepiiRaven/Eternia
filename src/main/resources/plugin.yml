@@ -1,6 +1,6 @@
-name: Plugin
+name: Eternia
 version: '${project.version}'
-main: com.eternia.Plugin
+main: com.eternia.Eternia
 api-version: 1.19
 commands:
   survival:

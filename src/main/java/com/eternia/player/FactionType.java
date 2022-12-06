@@ -2,7 +2,7 @@ package com.eternia.player;
 
 public enum FactionType {
     IMANITY,
-    LIGHTBRINGER,
+    LIGHTSEEKER,
     HELLSCAPER,
     CAVEDWELLER
 }

@@ -10,7 +10,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="EterniaPaper" target="16" />
+      <module name="eternia" target="16" />
+      <module name="EterniaPaper" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

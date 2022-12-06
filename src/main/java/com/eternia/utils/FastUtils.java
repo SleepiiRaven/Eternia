@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.Random;
 
 public class FastUtils {
+    // FastUtils class was created by the cool people over at Team Monumenta!
     public static final Random RANDOM = new Random();
 
     private static final int SIN_BITS = 12;

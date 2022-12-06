@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EterniaPaper.iml" filepath="$PROJECT_DIR$/EterniaPaper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eternia.iml" filepath="$PROJECT_DIR$/eternia.iml" />
     </modules>
   </component>
 </project>

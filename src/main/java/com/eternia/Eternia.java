@@ -6,12 +6,13 @@ import com.eternia.commands.Creative;
 import com.eternia.commands.Spectator;
 import com.eternia.commands.Survival;
 import com.eternia.listeners.PlayerListener;
+import com.eternia.utils.JsonUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Plugin extends JavaPlugin {
-    private static Plugin instance;
+public final class Eternia extends JavaPlugin {
+    private static Eternia instance;
     private CooldownManager cdInstance;
-    public static Plugin getInstance() {
+    public static Eternia getInstance() {
         return instance;
     }
     public CooldownManager getCdInstance() {
@@ -21,6 +22,8 @@ public final class Plugin extends JavaPlugin {
     public void onEnable() {
         instance = this;
         cdInstance = new CooldownManager();
+
+        JsonUtils.loadConfig();
 
         getCommand("survival").setExecutor(new Survival());
         getCommand("creative").setExecutor(new Creative());

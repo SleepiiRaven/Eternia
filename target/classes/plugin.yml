@@ -1,6 +1,6 @@
-name: Plugin
+name: Eternia
 version: '1.0-SNAPSHOT'
-main: com.eternia.Plugin
+main: com.eternia.Eternia
 api-version: 1.19
 commands:
   survival:
@@ -19,3 +19,6 @@ commands:
     aliases: 3
     description: Puts your gamemode to spectator
     usage: /3 or /spectator
+  factions:
+    description: Opens the Factions GUI
+    usage: /factions [player]

@@ -20,5 +20,6 @@ public class OpenFactionGUI implements CommandExecutor {
 
         if (!(sender instanceof Player)) return false;
         FactionGUI.openGUI((Player) sender);
+        return true;
     }
 }

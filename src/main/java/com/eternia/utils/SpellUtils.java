@@ -1,9 +1,10 @@
 package com.eternia.utils;
 
-import com.eternia.Plugin;
+import com.eternia.Eternia;
 import com.eternia.player.PlayerStats;
 import com.eternia.spells.Spell;
 import com.eternia.spells.SpellType;
+import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 import org.bukkit.entity.Player;
 
@@ -14,7 +15,7 @@ public class SpellUtils {
         Spell spell = getSpell(spellType, stats);
         if (spell == null) return;
         player.sendMessage("Spell has been found!");
-        spell.cast(player, Plugin.getInstance().getCdInstance());
+        spell.cast(player, Eternia.getInstance().getCdInstance());
     }
 
     public static Spell getSpell(SpellType spellType, PlayerStats stats) {

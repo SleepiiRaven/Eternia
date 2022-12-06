@@ -11,7 +11,7 @@ public class PlayerStats {
     public static HashMap<UUID, PlayerStats> playerStats = new HashMap<>();
     public Player player;
     public SpellTriggers spellTriggers;
-    public String faction;
+    public FactionType faction;
     public RaceType race;
     public Spell[] spells = {
             ElfSpells.LIGHT_SPEAR,
@@ -20,7 +20,7 @@ public class PlayerStats {
             ElfSpells.LEAP_OF_FATE
     };
 
-    public PlayerStats(Player player, SpellTriggers spellTriggers, String faction, RaceType race) {
+    public PlayerStats(Player player, SpellTriggers spellTriggers, FactionType faction, RaceType race) {
         this.player = player;
         this.spellTriggers = spellTriggers;
         this.faction = faction;
@@ -36,7 +36,7 @@ public class PlayerStats {
     }
     
     public static PlayerStats createStats(Player player, UUID pUUID) {
-        PlayerStats stats = new PlayerStats(player, new SpellTriggers(player), "lightseeker", RaceType.ANGEL);
+        PlayerStats stats = new PlayerStats(player, new SpellTriggers(player), FactionType.LIGHTSEEKER, RaceType.ANGEL);
         playerStats.put(pUUID, stats);
         return stats;
     }

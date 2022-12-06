@@ -1,8 +1,9 @@
 package com.eternia.spells;
 
 import com.eternia.CooldownManager;
-import com.eternia.Plugin;
+import com.eternia.Eternia;
 import com.eternia.utils.SpellUtils;
+import java.lang.reflect.InvocationTargetException;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
@@ -13,7 +14,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class SpellTriggers {
-    public Plugin plugin = Plugin.getInstance();
+    public Eternia plugin = Eternia.getInstance();
     public CooldownManager cooldownManager = plugin.getCdInstance();
     public Player player;
     public SpellTriggers(Player player) {

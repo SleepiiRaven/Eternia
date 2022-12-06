@@ -38,7 +38,7 @@ public class FactionGUI {
             inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE), ""));
         }
         inv.setItem(15, ItemUtils.getItem(new ItemStack(Material.PINK_STAINED_GLASS_PANE), ""));
-        inv.setItem(lightbringerSlot, ItemUtils.getItem(new ItemStack(Material.TOTEM_OF_UNDYING),"Lightbringers", "The faithful servants of the light created by Akilion to protect and serve the light."));
+        inv.setItem(lightbringerSlot, ItemUtils.getItem(new ItemStack(Material.TOTEM_OF_UNDYING),"Lightseekers", "The faithful servants of the light created by Akilion to protect and serve the light."));
         inv.setItem(17, ItemUtils.getItem(new ItemStack(Material.PINK_STAINED_GLASS_PANE), ""));
         for (int i = 18; i < 21; i++) {
             inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.GREEN_STAINED_GLASS_PANE), ""));
