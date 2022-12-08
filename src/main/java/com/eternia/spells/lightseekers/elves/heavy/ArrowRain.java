@@ -8,12 +8,15 @@ import com.eternia.utils.FastUtils;
 import com.eternia.utils.ParticleUtils;
 import java.util.ArrayList;
 import java.util.List;
+import net.kyori.adventure.sound.SoundStop;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 public class ArrowRain extends Spell {
@@ -22,6 +25,7 @@ public class ArrowRain extends Spell {
         Location location = player.getEyeLocation().add(0, 10, 0);
         new BukkitRunnable() {
             int ticks = 0;
+
             @Override
             public void run() {
                 List<Arrow> arrows = new ArrayList<>();
@@ -33,6 +37,7 @@ public class ArrowRain extends Spell {
                 int partialCount = 10;
                 int revolutionDegrees = 360;
                 double currentDegrees = 0;
+
                 for (int i = 0; i < partialCount; i++) {
                     // Always rerandomise rotation
                     currentDegrees = FastUtils.randomDoubleInRange(0, revolutionDegrees);
@@ -65,5 +70,10 @@ public class ArrowRain extends Spell {
                 if (ticks >= 60) this.cancel();
             }
         }.runTaskTimer(Eternia.getInstance(), 0L, 1L);
+
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_LAUNCH, 1.5f, 1.2f);
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_LAUNCH, 1.5f, 0.8f);
+        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM, 1f, 2f);
+        player.getWorld().playSound(player.getLocation(), Sound.ITEM_TRIDENT_RIPTIDE_3, 0.4f, 1.1f);
     }
 }

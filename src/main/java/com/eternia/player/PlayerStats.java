@@ -12,7 +12,7 @@ public class PlayerStats {
     public Player player;
     public SpellTriggers spellTriggers;
     public FactionType faction;
-    public RaceType race;
+    public AffinityType affinity;
     public Spell[] spells = {
             ElfSpells.LIGHT_SPEAR,
             ElfSpells.EYE_OF_LIGHT,
@@ -20,11 +20,11 @@ public class PlayerStats {
             ElfSpells.LEAP_OF_FATE
     };
 
-    public PlayerStats(Player player, SpellTriggers spellTriggers, FactionType faction, RaceType race) {
+    public PlayerStats(Player player, SpellTriggers spellTriggers, FactionType faction, AffinityType affinity) {
         this.player = player;
         this.spellTriggers = spellTriggers;
         this.faction = faction;
-        this.race = race;
+        this.affinity = affinity;
     }
     
     public static PlayerStats getStats(Player player, UUID pUUID) {
@@ -36,7 +36,7 @@ public class PlayerStats {
     }
     
     public static PlayerStats createStats(Player player, UUID pUUID) {
-        PlayerStats stats = new PlayerStats(player, new SpellTriggers(player), FactionType.LIGHTSEEKER, RaceType.ANGEL);
+        PlayerStats stats = new PlayerStats(player, new SpellTriggers(player), FactionType.LIGHTSEEKER, AffinityType.ANGEL);
         playerStats.put(pUUID, stats);
         return stats;
     }

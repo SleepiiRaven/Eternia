@@ -1,6 +1,8 @@
+com\eternia\guis\AffinityGUI.class
 com\eternia\spells\Spell.class
 com\eternia\spells\lightseekers\elves\heavy\ArrowRain.class
 com\eternia\commands\OpenFactionGUI.class
+com\eternia\player\AffinityType.class
 com\eternia\listeners\PlayerListener.class
 com\eternia\guis\SpellsGUI.class
 com\eternia\player\PlayerStats.class
@@ -22,12 +24,10 @@ com\eternia\utils\JsonUtils.class
 eternia\classsystem\spells\imanity\knights\KnightSpells.class
 com\eternia\utils\SpellUtils.class
 com\eternia\utils\SpellUtils$1.class
-com\eternia\player\RaceType.class
 com\eternia\spells\lightseekers\elves\heavy\ArrowRain$1$1.class
 com\eternia\Eternia.class
 com\eternia\CooldownManager.class
 com\eternia\listeners\PlayerListener$2.class
-com\eternia\spells\lightseekers\elves\util\EyeofLight$2.class
 com\eternia\utils\FastUtils.class
 com\eternia\listeners\GUIListener.class
 com\eternia\commands\Spectator.class
@@ -38,6 +38,7 @@ com\eternia\spells\lightseekers\elves\heavy\ArrowRain$1.class
 com\eternia\spells\lightseekers\elves\movement\LeapofFate.class
 eternia\classsystem\spells\imanity\humans\HumanSpells.class
 com\eternia\spells\lightseekers\elves\base\LightSpear.class
+com\eternia\commands\OpenAffinityGUI.class
 com\eternia\commands\Survival.class
 com\eternia\utils\BlockUtils.class
 com\eternia\player\FactionType.class
@@ -45,7 +46,5 @@ com\eternia\spells\lightseekers\elves\ElfSpells.class
 com\eternia\spells\SpellTriggers.class
 com\eternia\spells\imanity\demigods\heavy\GodsWrath.class
 com\eternia\utils\ItemUtils.class
-com\eternia\guis\RaceGUI.class
 com\eternia\spells\SpellType.class
-com\eternia\commands\OpenRaceGUI.class
 com\eternia\utils\ParticleUtils.class

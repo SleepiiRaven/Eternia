@@ -1,11 +1,8 @@
 package com.eternia.guis;
 
-
-import com.eternia.commands.OpenAffinityGUI;
 import com.eternia.player.FactionType;
 import com.eternia.player.PlayerStats;
 import com.eternia.utils.ItemUtils;
-import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -13,15 +10,11 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class FactionGUI {
-    private static final int imanitySlot = 10;
-    private static final int lightbringerSlot = 16;
-    private static final int hellscapersSlot = 37;
-    private static final int cavedwellersSlot = 43;
+public class AffinityGUI {
     public static final String invName = "Faction Selector";
-
     public static void openGUI(Player player) {
         Inventory inv = Bukkit.createInventory(player, 9 * 6, invName);
+        /**
         for (int i = 0; i < 3; i++) {
             inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.GREEN_STAINED_GLASS_PANE), ""));
         }
@@ -75,21 +68,11 @@ public class FactionGUI {
         }
         for (int i = 51; i < 54; i++) {
             inv.setItem(i, ItemUtils.getItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), ""));
-        }
+        }**/
 
         player.openInventory(inv);
     }
 
     public static void clickedGUI(InventoryClickEvent event) {
-        event.setCancelled(true);
-        PlayerStats stats = PlayerStats.getStats((Player) event.getWhoClicked(), event.getWhoClicked().getUniqueId());
-        switch (event.getSlot()) {
-            case imanitySlot:
-                stats.faction = FactionType.IMANITY;
-                AffinityGUI.openGUI((Player) event.getWhoClicked());
-            case lightbringerSlot:
-                stats.faction = FactionType.LIGHTSEEKER;
-                AffinityGUI.openGUI((Player) event.getWhoClicked());
-        }
     }
 }

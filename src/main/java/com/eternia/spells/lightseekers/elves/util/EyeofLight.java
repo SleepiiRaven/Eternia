@@ -3,46 +3,63 @@ package com.eternia.spells.lightseekers.elves.util;
 import com.eternia.CooldownManager;
 import com.eternia.Eternia;
 import com.eternia.spells.Spell;
-import com.eternia.utils.JsonUtils;
 import com.eternia.utils.ParticleUtils;
-import java.io.IOException;
-import java.lang.reflect.InaccessibleObjectException;
-import java.lang.reflect.InvocationTargetException;
-import net.minestom.server.coordinate.Vec;
-//import net.minestom.server.particle.Particle;
-import net.worldseed.particleemitter.runtime.ParticleEmitter;
-import net.worldseed.particleemitter.runtime.ParticleParser;
+import net.kyori.adventure.sound.SoundStop;
+import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.util.Vector;
 
 public class EyeofLight extends Spell {
     @Override
     public void cast(Player player, CooldownManager cooldownManager) {
         player.addScoreboardTag("homing");
-        BukkitTask particleEffect = new BukkitRunnable() {
+        new BukkitRunnable() {
+            int ticks = 0;
+            double yOffset = 0;
+            double radius = 3;
             @Override
             public void run() {
                 Location location = player.getLocation();
-                ParticleUtils.summonCircle(location, 2, Particle.TOTEM);
+                if (ticks++ >= 100 || location.getWorld() == null) {
+                    player.removeScoreboardTag("homing");
+                    this.cancel();
+                    player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BLAZE_HURT, 0.5f, 2f);
+                    player.getWorld().playSound(player.getLocation(), Sound.ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM, 1f, 1f);
+                    player.getWorld().playSound(player.getLocation(), Sound.BLOCK_RESPAWN_ANCHOR_DEPLETE, 1f, 1.3f);
+                    player.getWorld().stopSound(SoundStop.named(Sound.BLOCK_CONDUIT_AMBIENT));
+                    player.getWorld().stopSound(SoundStop.named(Sound.BLOCK_AMETHYST_BLOCK_CHIME));
+                    return;
+                }
+
+                if (radius <= 0) {
+                    radius = 3;
+                    yOffset = 0;
+                }
+
+                Location particleLoc = location.clone().add(0, yOffset, 0);
+                particleLoc.setX(location.getX() + Math.cos(ticks) * radius);
+                particleLoc.setZ(location.getZ() + Math.sin(ticks) * radius);
+                location.getWorld().spawnParticle(Particle.REDSTONE, particleLoc, 1, new Particle.DustOptions(Color.fromRGB(255, 194, 254), 2));
+
+                particleLoc.setX(location.getX() + Math.sin(ticks) * radius);
+                particleLoc.setZ(location.getZ() + Math.cos(ticks) * radius);
+                location.getWorld().spawnParticle(Particle.REDSTONE, particleLoc, 1, new Particle.DustOptions(Color.fromRGB(255, 194, 254), 2));
+
+
+                radius -= 0.075;
+                yOffset += 0.2;
             }
-        }.runTaskTimer(Eternia.getInstance(), 0L, 10L);
-        /**try {
-            ParticleEmitter emitter = ParticleParser.parse(Particle.DUST, 1000, JsonUtils.jsonObjects.get("Eye of Light"));
-            emitter.setPosition(new Vec(player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ()));
-            emitter.tick();
-        } catch (InvocationTargetException | NoSuchMethodException | InstantiationException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-         **/
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                player.removeScoreboardTag("homing");
-                particleEffect.cancel();
-            }
-        }.runTaskLater(Eternia.getInstance(), 100L);
+        }.runTaskTimer(Eternia.getInstance(), 0L, 1L);
+
+        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_CONDUIT_AMBIENT, 2f, 2f);
+        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_BEACON_ACTIVATE, 0.5f, 2f);
+        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_CHIME, 2f, 0.1f);
+        player.getWorld().playSound(player.getLocation(), Sound.BLOCK_BELL_RESONATE, 2f, 1.9f);
     }
 }

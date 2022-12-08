@@ -8,6 +8,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.UUID;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
+import org.bukkit.World;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -51,12 +55,27 @@ public class PlayerListener implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (arrow.isOnGround() || arrow.isDead()) this.cancel();
+                if (arrow.isDead()) {
+                    World world = arrow.getWorld();
+                    Location loc = arrow.getLocation();
+                    world.spawnParticle(Particle.FLAME, loc, 175, 0, 0, 0, 0.175);
+                    world.spawnParticle(Particle.SMOKE_LARGE, loc, 50, 0, 0, 0, 0.3);
+                    world.spawnParticle(Particle.EXPLOSION_NORMAL, loc, 50, 0, 0, 0, 0.3);
+                    player.getWorld().playSound(arrow.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1f, 1f);
+                    for (Entity nearbyEntity : loc.getNearbyEntities(2, 2, 2)) {
+                        if (!(nearbyEntity instanceof LivingEntity)) continue;
+                        LivingEntity target = (LivingEntity) nearbyEntity;
+                        target.damage(5);
+                    }
+                    this.cancel();
+                } else if (arrow.isOnGround()) {
+                    this.cancel();
+                }
 
-                List<Entity> nearest = arrow.getNearbyEntities(10, 10, 10);
+                List<Entity> nearest = arrow.getNearbyEntities(20, 20, 20);
                 Entity target = null;
                 for (Entity near : nearest) {
-                    if (near != player && near instanceof LivingEntity && player.hasLineOfSight(near)) {
+                    if (near != player && near instanceof LivingEntity && !near.isDead() && player.hasLineOfSight(near)) {
                         if (target == null) {
                             target = near;
                         } else if (arrow.getLocation().distanceSquared(near.getLocation()) < arrow.getLocation().distanceSquared(target.getLocation())) {
@@ -65,9 +84,9 @@ public class PlayerListener implements Listener {
                     }
                 }
                 if (target == null) return;
-                arrow.setVelocity(target.getLocation().toVector().subtract(arrow.getLocation().toVector()));
+                arrow.setVelocity(target.getLocation().toVector().subtract(arrow.getLocation().toVector()).normalize().multiply(2));
             }
-        }.runTaskTimer(plugin, 0L, 1L);
+        }.runTaskTimer(plugin, 5L, 1L);
     }
 
     @EventHandler

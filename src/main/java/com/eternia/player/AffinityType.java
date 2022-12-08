@@ -1,6 +1,6 @@
 package com.eternia.player;
 
-public enum RaceType {
+public enum AffinityType {
     DEMIGOD,
     HUMAN,
     KNIGHT,

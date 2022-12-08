@@ -6,8 +6,6 @@ C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\comma
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\guis\FactionGUI.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\SpellTriggers.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\imanity\demigods\movement\Ascension.java
-C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\commands\OpenRaceGUI.java
-C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\guis\RaceGUI.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\listeners\GUIListener.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\player\PlayerStats.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\imanity\demigods\util\CallofOrder.java
@@ -16,6 +14,7 @@ C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\Etern
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\imanity\demigods\base\Godswipe.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\commands\Creative.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\utils\ParticleUtils.java
+C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\guis\AffinityGUI.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\commands\Survival.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\lightseekers\elves\ElfSpells.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\utils\SpellUtils.java
@@ -26,17 +25,18 @@ C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spell
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\lightseekers\elves\util\EyeofLight.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\lightseekers\elves\heavy\ArrowRain.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\imanity\knights\KnightSpells.java
+C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\player\AffinityType.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\imanity\humans\HumanSpells.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\lightseekers\astreans\AstreanSpells.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\utils\BlockUtils.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\SpellType.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\imanity\demigods\DemigodSpells.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\commands\Adventure.java
-C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\player\RaceType.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\spells\Spell.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\utils\JsonUtils.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\commands\OpenFactionGUI.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\utils\FastUtils.java
+C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\commands\OpenAffinityGUI.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\guis\SpellsGUI.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\listeners\PlayerListener.java
 C:\Users\Emma20Len\Documents\GitHub\EterniaPaper\src\main\java\com\eternia\CooldownContainer.java

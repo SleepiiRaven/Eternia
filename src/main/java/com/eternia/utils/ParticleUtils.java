@@ -5,14 +5,25 @@ import org.bukkit.Location;
 import org.bukkit.Particle;
 
 public class ParticleUtils {
-    public static void summonCircle(Location location, int size, Particle particle) {
+    public static void summonCircle(Location location, int radius, Particle particle) {
+        for (int d = 0; d <= 90; d += 1) {
+            Location particleLoc = location.clone();
+            // Cosine for X
+            particleLoc.setX(location.getX() + Math.cos(d) * radius);
+            // Sine for Z
+            particleLoc.setZ(location.getZ() + Math.sin(d) * radius);
+            location.getWorld().spawnParticle(particle, particleLoc, 1);
+        }
+    }
+
+    public static void summonCircle(Location location, int radius, Particle.DustOptions options) {
         for (int d = 0; d <= 90; d += 1) {
             Location particleLoc = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ());
             // Cosine for X
-            particleLoc.setX(location.getX() + Math.cos(d) * size);
+            particleLoc.setX(location.getX() + Math.cos(d) * radius);
             // Sine for Z
-            particleLoc.setZ(location.getZ() + Math.sin(d) * size);
-            location.getWorld().spawnParticle(particle, particleLoc, 1);
+            particleLoc.setZ(location.getZ() + Math.sin(d) * radius);
+            location.getWorld().spawnParticle(Particle.REDSTONE, particleLoc, 1, options);
         }
     }
 
